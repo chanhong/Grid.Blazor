@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>GridShared.Data</RootNamespace>
-    <Version>8.0.1</Version>
+    <Version>8.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
