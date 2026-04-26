@@ -9,7 +9,10 @@ namespace GridShared.Style
         Bootstrap_4,
         Bootstrap_5,
         Materialize,
-        Bulma
+        Bulma,
+        MudBlazorOutlined,
+        MudBlazorFilled,
+        MudBlazorText
     }
 
     public static class CssFrameworkExtensions
@@ -28,6 +31,12 @@ namespace GridShared.Style
                     return "Materialize";
                 case CssFramework.Bulma:
                     return "Bulma";
+                case CssFramework.MudBlazorOutlined:
+                    return "MudBlazor Outlined";
+                case CssFramework.MudBlazorFilled:
+                    return "MudBlazorFilled";
+                case CssFramework.MudBlazorText:
+                    return "MudBlazor Text";
                 default:
                     return "";
             }

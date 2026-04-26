@@ -19,7 +19,7 @@ namespace GridBlazorClientSide.Client
         // not necessary to implement  in normal projects
         public static HtmlClass HtmlClass;
 
-        private readonly static string[] _button_small = { "btn-sm", "btn-sm", "btn-sm", "btn-small", "" };
+        private readonly static string[] _button_small = { "btn-sm", "btn-sm", "btn-sm", "btn-small", "", "mud-button-size-small", "mud-button-size-small", "mud-button-size-small" };
         public static string ButtonSmall;
 
         public static async Task Main(string[] args)

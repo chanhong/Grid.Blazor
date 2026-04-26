@@ -191,6 +191,12 @@
     <None Include="wwwroot\css\gridblazor-bootstrap3.min.css" />
 	<None Include="wwwroot\css\gridblazor-bulma.css" />
 	<None Include="wwwroot\css\gridblazor-bulma.min.css" />
+	<None Include="wwwroot\css\gridblazor-mudblazor-outlined.css" />
+	<None Include="wwwroot\css\gridblazor-mudblazor-outlined.min.css" />
+	<None Include="wwwroot\css\gridblazor-mudblazor-filled.css" />
+	<None Include="wwwroot\css\gridblazor-mudblazor-filled.min.css" />
+	<None Include="wwwroot\css\gridblazor-mudblazor-text.css" />
+	<None Include="wwwroot\css\gridblazor-mudblazor-text.min.css" />
 	<None Include="wwwroot\css\gridblazor-materialize.css" />
 	<None Include="wwwroot\css\gridblazor-materialize.min.css" />
     <None Include="wwwroot\js\gridblazor.js" />

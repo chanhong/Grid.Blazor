@@ -1,72 +1,73 @@
-﻿namespace GridShared.Style
+namespace GridShared.Style
 {
     public class HtmlClass
     {
-        private readonly string[] _button = { "btn", "btn", "btn", "btn", "button" };
-        private readonly string[] _buttonPrimary = { "btn btn-primary", "btn btn-primary", "btn btn-primary", "btn filled", "button is-link" };
-        private readonly string[] _buttonSecondary = { "btn btn-secondary", "btn btn-secondary", "btn btn-secondary", "btn tonal", "button" };
-        private readonly string[] _buttonLink = { "btn btn-link", "btn btn-link", "btn btn-link", "btn btn-small text", "button is-small" };
-        private readonly string[] _card = { "panel panel-default", "card", "card", "card", "card" };
-        private readonly string[] _cardBody = { "panel-body", "card-body", "card-body", "card-content", "card-content" };
-        private readonly string[] _colMd = { "col-md-", "col-md-", "col-md-", "col m", "column is-" };
-        private readonly string[] _dropdownMenu = { "dropdown dropdown-menu", "dropdown dropdown-menu", "dropdown dropdown-menu", "dropdown-content", "dropdown dropdown-menu" };
-        private readonly string[] _footerRow = { "form-group row", "form-group row", "mb-3", "row mb-3", "columns" };
-        private readonly string[] _formGroupRow = { "form-group row", "form-group row mb-3", "row mb-3", "row mb-3", "columns" };
-        private readonly string[] _formLabel = { "control-label", "col-form-label", "col-form-label", "grid-materialize-label", "label" };
-        private readonly string[] _formDivInput = { "", "", "", "input-field", "control" };
-        private readonly string[] _formInput = { "form-control", "form-control", "form-control", "grid-materialize-input", "input" };
-        private readonly string[] _formDivSelect = { "", "", "", "", "select grid-bulma-select" };
-        private readonly string[] _formSelect = { "form-control", "form-control", "form-select", "grid-materialize-select", "grid-bulma-select" };
-        private readonly string[] _formTextArea = { "form-control", "form-control", "form-control", "grid-materialize-textarea", "textarea" };
-        private readonly string[] _formCheck = { "form-control", "form-check", "form-check", "", "checkbox" };
-        private readonly string[] _formDivToggleSwitch = { "", "", "", "switch", "grid-bulma-switch" };
-        private readonly string[] _formSpanToggleSwitch = { "grid-slider round", "grid-slider round", "grid-slider round", "lever", "grid-slider round" };
-        private readonly string[] _formSpanToggleDisabledSwitch = { "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round", "lever", "grid-slider-disabled round" };
-        private readonly string[] _inputGroup = { "input-group", "input-group", "input-group", "input-group", "field has-addons" };
-        private readonly string[] _inputGroupLeftButton = { "input-group-btn", "input-group-btn", "input-group-btn", "prefix mt-2", "" };
-        private readonly string[] _inputGroupRightButton = { "input-group-btn", "input-group-btn", "input-group-btn", "suffix mt-2", "" };
-        private readonly string[] _listFilterValueLabel = { "", "", "", "my-5", "" };
-        private readonly string[] _modal = { "modal", "modal", "modal", "modal", "modal" };
-        private readonly string[] _modalDialog = { "modal-dialog", "modal-dialog", "modal-dialog", "modal-content", "" };
-        private readonly string[] _modalContent = { "modal-content", "modal-content", "modal-content", "", "modal-content" };
-        private readonly string[] _modalBody = { "modal-body", "modal-body", "modal-body", "", "modal-body" };
-        private readonly string[] _mx000 = { "", "mx-0", "mx-0", "mx-0", "mx-0" };
-        private readonly string[] _mx050 = { "", "mx-2", "mx-2", "mx-2", "mx-2" };
-        private readonly string[] _mx100 = { "", "mx-3", "mx-3", "mx-4", "mx-4" };
-        private readonly string[] _my000 = { "", "my-0", "my-0", "my-0", "my-0" };
-        private readonly string[] _my050 = { "", "my-2", "my-2", "my-2", "my-2" };
-        private readonly string[] _my100 = { "", "my-3", "my-3", "my-4", "my-4" };
-        private readonly string[] _mt000 = { "", "mt-0", "mt-0", "mt-0", "mt-0" };
-        private readonly string[] _mt050 = { "", "mt-2", "mt-2", "mt-2", "mt-2" };
-        private readonly string[] _mt100 = { "", "mt-3", "mt-3", "mt-4", "mt-4" };
-        private readonly string[] _mb000 = { "", "mb-0", "mb-0", "mb-0", "mb-0" };
-        private readonly string[] _mb050 = { "", "mb-2", "mb-2", "mb-2", "mb-2" };
-        private readonly string[] _mb100 = { "", "mb-3", "mb-3", "mb-4", "mb-4" };
-        private readonly string[] _ml000 = { "", "ml-0", "ms-0", "ml-0", "ml-0" };
-        private readonly string[] _ml050 = { "", "ml-2", "ms-2", "ml-2", "ml-2" };
-        private readonly string[] _ml100 = { "", "ml-3", "ms-3", "ml-4", "ml-4" };
-        private readonly string[] _mr000 = { "", "mr-0", "me-0", "mr-0", "mr-0" };
-        private readonly string[] _mr050 = { "", "mr-2", "me-2", "mr-2", "mr-2" };
-        private readonly string[] _mr100 = { "", "mr-3", "me-3", "mr-4", "mr-4" };
-        private readonly string[] _offsetMd = { "col-md-offset-", "offset-md-", "offset-md-", "offset-m", "is-offset-" };
-        private readonly string[] _paginationNav = { "", "", "", "", "pagination" };
-        private readonly string[] _paginationList = { "pagination", "pagination", "pagination", "pagination", "pagination-list" };
-        private readonly string[] _pageInput = { "form-control", "form-control", "form-control", "", "input" };
-        private readonly string[] _pageItem = { "page-item", "page-item", "page-item", "", "" };
-        private readonly string[] _pageItemActive = { "active", "active", "active", "active", "" };
-        private readonly string[] _pageLink = { "page-link", "page-link", "page-link", "", "pagination-link" };
-        private readonly string[] _pageLinkActive = { "", "", "", "", "is-current" };
-        private readonly string[] _row = { "row", "row", "row", "row", "columns" };
-        private readonly string[] _searchInput = { "form-control", "form-control", "form-control", "", "input" };
-        private readonly string[] _tabDiv = { "", "", "", "", "tabs grid-tabs" };
-        private readonly string[] _tabList = { "nav nav-tabs", "nav nav-tabs", "nav nav-tabs", "tabs", "" };
-        private readonly string[] _tabItem = { "nav-item", "nav-item", "nav-item", "tab", "tab" };
-        private readonly string[] _tabItemActive = { "active", "active", "active", "active", "is-active" };
-        private readonly string[] _tabLink = { "nav-link", "nav-link", "nav-link", "", "" };
-        private readonly string[] _tabLinkActive = { "", "active", "active", "active", "" };
-        private readonly string[] _tabPaneHidden = { "", "", "", "hidden", "hidden" };
-        private readonly string[] _tabPaneActive = { "active", "active", "active", "active", "active" };
-
+        // Index: 0=Bootstrap_3, 1=Bootstrap_4, 2=Bootstrap_5, 3=Materialize, 4=Bulma, 5=MudBlazor_Outlined, 6=MudBlazor_Filled, 7=MudBlazor_Text
+        private readonly string[] _button = { "btn", "btn", "btn", "btn", "button", "mud-button-root mud-button mud-button-outlined", "mud-button-root mud-button mud-button-filled", "mud-button-root mud-button mud-button-text" };
+        private readonly string[] _buttonPrimary = { "btn btn-primary", "btn btn-primary", "btn btn-primary", "btn outlined", "button is-link", "mud-button-root mud-ripple mud-button mud-button-outlined mud-button-outlined-primary", "mud-button-root mud-ripple mud-button mud-button-filled mud-button-filled-primary", "mud-button-root mud-ripple mud-button mud-button-text mud-button-text-primary" };
+        private readonly string[] _buttonSecondary = { "btn btn-secondary", "btn btn-secondary", "btn btn-secondary", "btn tonal", "button", "mud-button-root mud-ripple mud-button mud-button-outlined mud-button-outlined-secondary", "mud-button-root mud-ripple mud-button mud-button-filled mud-button-filled-secondary", "mud-button-root mud-ripple mud-button mud-button-text mud-button-text-secondary" };
+        private readonly string[] _buttonLink = { "btn btn-link", "btn btn-link", "btn btn-link", "btn btn-small text", "button is-small", "", "", "" };
+        private readonly string[] _card = { "panel panel-default", "card", "card", "card", "card", "mud-paper mud-card", "mud-paper mud-card", "mud-paper mud-card" };
+        private readonly string[] _cardBody = { "panel-body", "card-body", "card-body", "card-content", "card-content", "mud-card-content", "mud-card-content", "mud-card-content" };
+        private readonly string[] _colMd = { "col-md-", "col-md-", "col-md-", "col m", "column is-", "mud-grid-item mud-grid-item-xs-", "mud-grid-item mud-grid-item-xs-", "mud-grid-item mud-grid-item-xs-" };
+        private readonly string[] _dropdownMenu = { "dropdown dropdown-menu", "dropdown dropdown-menu", "dropdown dropdown-menu", "dropdown-content", "dropdown dropdown-menu", "", "", "" };
+        private readonly string[] _footerRow = { "form-group row", "form-group row", "mb-3", "row mb-3", "columns", "mb-3", "mb-3", "mb-3" };
+        private readonly string[] _formGroupRow = { "form-group row", "form-group row mb-3", "row mb-3", "row mb-3", "columns", "mb-3 grid-form-row", "mb-3 grid-form-row", "mb-3 grid-form-row" };
+        private readonly string[] _formLabel = { "control-label", "col-form-label", "col-form-label", "grid-materialize-label", "label", "mud-input-label", "mud-input-label", "mud-input-label" };
+        private readonly string[] _formDivInput = { "", "", "", "input-field", "control", "mud-input-control", "mud-input-control", "mud-input-control" };
+        private readonly string[] _formInput = { "form-control", "form-control", "form-control", "grid-materialize-input", "input", "mud-input-root mud-input", "mud-input-root mud-input", "mud-input-root mud-input" };
+        private readonly string[] _formDivSelect = { "", "", "", "", "select grid-bulma-select", "mud-input-control", "mud-input-control", "mud-input-control" };
+        private readonly string[] _formSelect = { "form-control", "form-control", "form-select", "grid-materialize-select", "grid-bulma-select", "mud-select-input", "mud-select-input", "mud-select-input" };
+        private readonly string[] _formTextArea = { "form-control", "form-control", "form-control", "grid-materialize-textarea", "textarea", "mud-input-root mud-input mud-input-multiline", "mud-input-root mud-input mud-input-multiline", "mud-input-root mud-input mud-input-multiline" };
+        private readonly string[] _formCheck = { "form-control", "form-check", "form-check", "", "checkbox", "", "", "" };
+        private readonly string[] _formDivToggleSwitch = { "", "", "", "switch", "grid-bulma-switch", "", "", "" };
+        private readonly string[] _formSpanToggleSwitch = { "grid-slider round", "grid-slider round", "grid-slider round", "lever", "grid-slider round", "grid-slider round", "grid-slider round", "grid-slider round" };
+        private readonly string[] _formSpanToggleDisabledSwitch = { "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round", "lever", "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round" };
+        private readonly string[] _inputGroup = { "input-group", "input-group", "input-group", "input-group", "field has-addons", "mud-input-control", "mud-input-control", "mud-input-control" };
+        private readonly string[] _inputGroupLeftButton = { "input-group-btn", "input-group-btn", "input-group-btn", "prefix mt-2", "", "grid-input-group-left-button", "grid-input-group-left-button", "grid-input-group-left-button" };
+        private readonly string[] _inputGroupRightButton = { "input-group-btn", "input-group-btn", "input-group-btn", "suffix mt-2", "", "grid-input-group-right-button", "grid-input-group-right-button", "grid-input-group-right-button" };
+        private readonly string[] _listFilterValueLabel = { "", "", "", "my-5", "", "my-2", "my-2", "my-2" };
+        private readonly string[] _modal = { "modal", "modal", "modal", "modal", "modal", "mud-overlay", "mud-overlay", "mud-overlay" };
+        private readonly string[] _modalDialog = { "modal-dialog", "modal-dialog", "modal-dialog", "modal-content", "", "mud-dialog", "mud-dialog", "mud-dialog" };
+        private readonly string[] _modalContent = { "modal-content", "modal-content", "modal-content", "", "modal-content", "mud-dialog-content", "mud-dialog-content", "mud-dialog-content" };
+        private readonly string[] _modalBody = { "modal-body", "modal-body", "modal-body", "", "modal-body", "mud-dialog-content", "mud-dialog-content", "mud-dialog-content" };
+        private readonly string[] _mx000 = { "", "mx-0", "mx-0", "mx-0", "mx-0", "mx-0", "mx-0", "mx-0" };
+        private readonly string[] _mx050 = { "", "mx-2", "mx-2", "mx-2", "mx-2", "mx-2", "mx-2", "mx-2" };
+        private readonly string[] _mx100 = { "", "mx-3", "mx-3", "mx-4", "mx-4", "mx-4", "mx-4", "mx-4" };
+        private readonly string[] _my000 = { "", "my-0", "my-0", "my-0", "my-0", "my-0", "my-0", "my-0" };
+        private readonly string[] _my050 = { "", "my-2", "my-2", "my-2", "my-2", "my-2", "my-2", "my-2" };
+        private readonly string[] _my100 = { "", "my-3", "my-3", "my-4", "my-4", "my-4", "my-4", "my-4" };
+        private readonly string[] _mt000 = { "", "mt-0", "mt-0", "mt-0", "mt-0", "mt-0", "mt-0", "mt-0" };
+        private readonly string[] _mt050 = { "", "mt-2", "mt-2", "mt-2", "mt-2", "mt-2", "mt-2", "mt-2" };
+        private readonly string[] _mt100 = { "", "mt-3", "mt-3", "mt-4", "mt-4", "mt-4", "mt-4", "mt-4" };
+        private readonly string[] _mb000 = { "", "mb-0", "mb-0", "mb-0", "mb-0", "mb-0", "mb-0", "mb-0" };
+        private readonly string[] _mb050 = { "", "mb-2", "mb-2", "mb-2", "mb-2", "mb-2", "mb-2", "mb-2" };
+        private readonly string[] _mb100 = { "", "mb-3", "mb-3", "mb-4", "mb-4", "mb-4", "mb-4", "mb-4" };
+        private readonly string[] _ml000 = { "", "ml-0", "ms-0", "ml-0", "ml-0", "ml-0", "ml-0", "ml-0" };
+        private readonly string[] _ml050 = { "", "ml-2", "ms-2", "ml-2", "ml-2", "ml-2", "ml-2", "ml-2" };
+        private readonly string[] _ml100 = { "", "ml-3", "ms-3", "ml-4", "ml-4", "ml-4", "ml-4", "ml-4" };
+        private readonly string[] _mr000 = { "", "mr-0", "me-0", "mr-0", "mr-0", "mr-0", "mr-0", "mr-0" };
+        private readonly string[] _mr050 = { "", "mr-2", "me-2", "mr-2", "mr-2", "mr-2", "mr-2", "mr-2" };
+        private readonly string[] _mr100 = { "", "mr-3", "me-3", "mr-4", "mr-4", "mr-4", "mr-4", "mr-4" };
+        private readonly string[] _offsetMd = { "col-md-offset-", "offset-md-", "offset-md-", "offset-m", "is-offset-", "", "", "" };
+        private readonly string[] _paginationNav = { "", "", "", "", "pagination", "mud-pagination", "mud-pagination", "mud-pagination" };
+        private readonly string[] _paginationList = { "pagination", "pagination", "pagination", "pagination", "pagination-list", "mud-pagination-list", "mud-pagination-list", "mud-pagination-list" };
+        private readonly string[] _pageInput = { "form-control", "form-control", "form-control", "", "input", "mud-input-root mud-input", "mud-input-root mud-input", "mud-input-root mud-input" };
+        private readonly string[] _pageItem = { "page-item", "page-item", "page-item", "", "", "mud-pagination-item", "mud-pagination-item", "mud-pagination-item" };
+        private readonly string[] _pageItemActive = { "active", "active", "active", "active", "", "mud-pagination-item-selected", "mud-pagination-item-selected", "mud-pagination-item-selected" };
+        private readonly string[] _pageLink = { "page-link", "page-link", "page-link", "", "pagination-link", "mud-button-root mud-ripple mud-pagination-item", "mud-button-root mud-ripple mud-pagination-item", "mud-button-root mud-ripple mud-pagination-item" };
+        private readonly string[] _pageLinkActive = { "", "", "", "", "is-current", "", "", "" };
+        private readonly string[] _row = { "row", "row", "row", "row", "columns", "mud-grid", "mud-grid", "mud-grid" };
+        private readonly string[] _searchInput = { "form-control", "form-control", "form-control", "", "input", "mud-input-root mud-input", "mud-input-root mud-input", "mud-input-root mud-input" };
+        private readonly string[] _tabDiv = { "", "", "", "", "tabs grid-tabs", "", "", "" };
+        private readonly string[] _tabList = { "nav nav-tabs", "nav nav-tabs", "nav nav-tabs", "tabs", "", "mud-tabs-toolbar", "mud-tabs-toolbar", "mud-tabs-toolbar" };
+        private readonly string[] _tabItem = { "nav-item", "nav-item", "nav-item", "tab", "tab", "mud-tab", "mud-tab", "mud-tab" };
+        private readonly string[] _tabItemActive = { "active", "active", "active", "active", "is-active", "mud-tab-active", "mud-tab-active", "mud-tab-active" };
+        private readonly string[] _tabLink = { "nav-link", "nav-link", "nav-link", "", "", "", "", "" };
+        private readonly string[] _tabLinkActive = { "", "active", "active", "active", "", "", "", "" };
+        private readonly string[] _tabPaneHidden = { "", "", "", "hidden", "hidden", "hidden", "hidden", "hidden" };
+        private readonly string[] _tabPaneActive = { "active", "active", "active", "active", "active", "active", "active", "active" };
+        
         public CssFramework GridStyle { get; }
 
         public string Button { get { return _button[(int)GridStyle]; } }
@@ -139,8 +140,8 @@
             GridStyle = CssFramework.Bootstrap_4;
         }
 
-        public HtmlClass(CssFramework gridStyle) 
-        { 
+        public HtmlClass(CssFramework gridStyle)
+        {
             GridStyle = gridStyle;
         }
     }

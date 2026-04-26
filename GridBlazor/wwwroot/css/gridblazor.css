@@ -60,7 +60,7 @@ table.grid-table .grid-popup-additional { padding: 3px 0 0 0; }
 div[dir="rtl"] .grid-tooltip-dropdown { left: 0; right: -102px; }
 
 /* POP-UP */
-.grid-dropdown { font-weight: normal; left: -102px; top: 16px!important; min-width: 360px; }
+.grid-dropdown { font-weight: normal; left: -102px; top: 16px!important; min-width: 360px; z-index: 1000; }
 div[dir="rtl"] .grid-dropdown { left: -258px; }
 .grid-dropdown-arrow { background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAICAYAAADJEc7MAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAl0lEQVQoU42PMQuFMAyE6xN5gpOjjsIb/P9/o3O3zh27dY25kIPq8DBwmLT35WoQkUEVOmGec84CaW2q7+N+AdCD6M9SisQYTei1jsfyCeCu+vjFVGs1AN++94DRfUOfuNLoKUiyRC5y2F5I8NdaM4P/l0EswvBorQTnfxBhLMRih+2pklIy+eEtjQPu6MNZwIBNbwteMBd5X4ZGHcwL3QAAAABJRU5ErkJggg==") no-repeat; height: 8px; left: 99px; position: absolute; top: -8px; width: 14px; }
 div[dir="rtl"] .grid-dropdown-arrow { left: 255px; }
@@ -117,6 +117,12 @@ input.grid-search-input {height: 34px; border-color: #ccc; }
 .grid-goto-page { width: 180px; }
 .grid-change-page-size label, .grid-goto-page label { margin: 6px 10px; }
 .grid-change-page-size-input, .grid-goto-page-input { display:inline; width: 60px; margin-left:5px;  margin-right:5px; }
+.grid-goto-page label:first-child { text-align: right; }
+.grid-change-page-size label:first-child { text-align: right; }
+.grid-change-page-size label:last-child { text-align: left; }
+div[dir="rtl"] .grid-goto-page label:first-child { text-align: left; }
+div[dir="rtl"] .grid-change-page-size label:first-child { text-align: left; }
+div[dir="rtl"] .grid-change-page-size label:last-child { text-align: right; }
 
 /* Grid extended sorting */
 .grid-extsort-droppable { height: 42px; width: 100%; margin-bottom:10px; border: 1px solid #ccc; border-radius: 4px; }

@@ -28,5 +28,23 @@
     "inputFiles": [
       "wwwroot/css/gridblazor-bulma.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/gridblazor-mudblazor-outlined.min.css",
+    "inputFiles": [
+      "wwwroot/css/gridblazor-mudblazor-outlined.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/gridblazor-mudblazor-filled.min.css",
+    "inputFiles": [
+      "wwwroot/css/gridblazor-mudblazor-filled.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/gridblazor-mudblazor-text.min.css",
+    "inputFiles": [
+      "wwwroot/css/gridblazor-mudblazor-text.css"
+    ]
   }
 ]
