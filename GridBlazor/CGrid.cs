@@ -932,7 +932,7 @@ namespace GridBlazor
         /// </summary>
         public bool CreateConfirmation { get; set; } = false;
 
-        public int CreateConfirmationWidth { get; set; } = 5;
+        public int CreateConfirmationWidth { get; set; } = 6;
 
         public int CreateConfirmationLabelWidth { get; set; } = 2;
 
@@ -941,7 +941,7 @@ namespace GridBlazor
         /// </summary>
         public bool UpdateConfirmation { get; set; } = false;
 
-        public int UpdateConfirmationWidth { get; set; } = 5;
+        public int UpdateConfirmationWidth { get; set; } = 6;
 
         public int UpdateConfirmationLabelWidth { get; set; } = 2;
 
@@ -950,7 +950,7 @@ namespace GridBlazor
         /// </summary>
         public bool DeleteConfirmation { get; set; } = false;
 
-        public int DeleteConfirmationWidth { get; set; } = 5;
+        public int DeleteConfirmationWidth { get; set; } = 6;
 
         public int DeleteConfirmationLabelWidth { get; set; } = 2;
 

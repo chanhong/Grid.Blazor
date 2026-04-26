@@ -49,7 +49,7 @@ namespace GridBlazor.Columns
 
         public bool CrudCustomWith { get; internal set; } = false;
 
-        public int CrudWidth { get; set; } = 5;
+        public int CrudWidth { get; set; } = 6;
 
         public int CrudLabelWidth { get; set; } = 2;
 

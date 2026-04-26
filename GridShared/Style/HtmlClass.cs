@@ -9,9 +9,9 @@ namespace GridShared.Style
         private readonly string[] _buttonLink = { "btn btn-link", "btn btn-link", "btn btn-link", "btn btn-small text", "button is-small", "", "", "" };
         private readonly string[] _card = { "panel panel-default", "card", "card", "card", "card", "mud-paper mud-card", "mud-paper mud-card", "mud-paper mud-card" };
         private readonly string[] _cardBody = { "panel-body", "card-body", "card-body", "card-content", "card-content", "mud-card-content", "mud-card-content", "mud-card-content" };
-        private readonly string[] _colMd = { "col-md-", "col-md-", "col-md-", "col m", "column is-", "mud-grid-item mud-grid-item-xs-", "mud-grid-item mud-grid-item-xs-", "mud-grid-item mud-grid-item-xs-" };
+        private readonly string[] _colMd = { "col-md-", "col-md-", "col-md-", "col m", "column is-", "mb-3 mud-grid-item mud-grid-item-xs-", "mb-3 mud-grid-item mud-grid-item-xs-", "mb-3 mud-grid-item mud-grid-item-xs-" };
         private readonly string[] _dropdownMenu = { "dropdown dropdown-menu", "dropdown dropdown-menu", "dropdown dropdown-menu", "dropdown-content", "dropdown dropdown-menu", "", "", "" };
-        private readonly string[] _footerRow = { "form-group row", "form-group row", "mb-3", "row mb-3", "columns", "mb-3", "mb-3", "mb-3" };
+        private readonly string[] _footerRow = { "form-group row", "form-group row", "mb-3", "row mb-3", "columns", "mb-3 mud-grid", "mb-3 mud-grid", "mb-3 mud-grid" };
         private readonly string[] _formGroupRow = { "form-group row", "form-group row mb-3", "row mb-3", "row mb-3", "columns", "mb-3 grid-form-row", "mb-3 grid-form-row", "mb-3 grid-form-row" };
         private readonly string[] _formLabel = { "control-label", "col-form-label", "col-form-label", "grid-materialize-label", "label", "mud-input-label", "mud-input-label", "mud-input-label" };
         private readonly string[] _formDivInput = { "", "", "", "input-field", "control", "mud-input-control", "mud-input-control", "mud-input-control" };
@@ -23,6 +23,7 @@ namespace GridShared.Style
         private readonly string[] _formDivToggleSwitch = { "", "", "", "switch", "grid-bulma-switch", "", "", "" };
         private readonly string[] _formSpanToggleSwitch = { "grid-slider round", "grid-slider round", "grid-slider round", "lever", "grid-slider round", "grid-slider round", "grid-slider round", "grid-slider round" };
         private readonly string[] _formSpanToggleDisabledSwitch = { "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round", "lever", "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round" };
+        private readonly string[] _formButtons = { "", "", "", "", "", "mud-grid-item mud-grid-item-xs-12", "mud-grid-item mud-grid-item-xs-12", "mud-grid-item mud-grid-item-xs-12" };
         private readonly string[] _inputGroup = { "input-group", "input-group", "input-group", "input-group", "field has-addons", "mud-input-control", "mud-input-control", "mud-input-control" };
         private readonly string[] _inputGroupLeftButton = { "input-group-btn", "input-group-btn", "input-group-btn", "prefix mt-2", "", "grid-input-group-left-button", "grid-input-group-left-button", "grid-input-group-left-button" };
         private readonly string[] _inputGroupRightButton = { "input-group-btn", "input-group-btn", "input-group-btn", "suffix mt-2", "", "grid-input-group-right-button", "grid-input-group-right-button", "grid-input-group-right-button" };
@@ -90,6 +91,7 @@ namespace GridShared.Style
         public string FormDivToggleSwitch { get { return _formDivToggleSwitch[(int)GridStyle]; } }
         public string FormSpanToggleSwitch { get { return _formSpanToggleSwitch[(int)GridStyle]; } }
         public string FormSpanToggleDisabledSwitch { get { return _formSpanToggleDisabledSwitch[(int)GridStyle]; } }
+        public string FormButtons { get { return _formButtons[(int)GridStyle]; } }
         public string InputGroup { get { return _inputGroup[(int)GridStyle]; } }
         public string InputGroupLeftButton { get { return _inputGroupLeftButton[(int)GridStyle]; } }
         public string InputGroupRightButton { get { return _inputGroupRightButton[(int)GridStyle]; } }

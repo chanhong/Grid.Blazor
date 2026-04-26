@@ -2,6 +2,7 @@
 @using GridBlazor.Resources
 @using GridShared
 @using GridShared.Columns
+@using GridShared.Style
 
 @typeparam T
 
@@ -10,7 +11,10 @@
 }
 <div class="@GridComponent.GridCrudHeaderCssClass">@(string.IsNullOrWhiteSpace(GridComponent.Grid.ReadFormLabel) ? Strings.View : GridComponent.Grid.ReadFormLabel)</div>
 
-<div>
+@{
+    bool isMudBlazor = GridComponent.Grid.HtmlClass.GridStyle >= CssFramework.MudBlazorOutlined;
+}
+<div class="@(isMudBlazor ? "grid-form-row" : "")">
     @foreach (var column in GridComponent.Grid.Columns)
     {
         if (((ICGridColumn)column).SubGrids == null && column.ComponentType == null
@@ -27,18 +31,18 @@
             {
                 continue;
             }
-            <div class="@GridComponent.Grid.HtmlClass.FormGroupRow" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ) ? "display:none;" : "")">
+            <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormDivInput + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString() : GridComponent.Grid.HtmlClass.FormGroupRow)" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ) ? "display:none;" : "")">
                 @if (!string.IsNullOrWhiteSpace(column.TooltipValue))
                 {
-                    <div class="@(GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
+                    <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
                         <FormTooltipComponent T="@T" Column="@column"></FormTooltipComponent>
                     </div>
                 }
                 else
                 {
-                    <label for="@column.FieldName" class="@(GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
+                    <label for="@column.FieldName" class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
                 }
-                <div class="@(type == typeof(bool) && column.ToggleSwitch ? GridComponent.Grid.HtmlClass.FormDivToggleSwitch : GridComponent.Grid.HtmlClass.FormDivInput) @(type == typeof(bool) && !column.ToggleSwitch ? GridComponent.Grid.HtmlClass.ColMd + "1" : GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString())">
+                <div class="@(isMudBlazor ? "" : (type == typeof(bool) && column.ToggleSwitch ? GridComponent.Grid.HtmlClass.FormDivToggleSwitch : GridComponent.Grid.HtmlClass.FormDivInput) + " " + (type == typeof(bool) && !column.ToggleSwitch ? GridComponent.Grid.HtmlClass.ColMd + "1" : GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString()))">
                     @if (((IGridColumn<T>)column).IsSelectField.IsSelectKey)
                     {
                         string text = ((IGridColumn<T>)column).GetFormatedValue(((IGridColumn<T>)column).IsSelectField.Expression, Item);
@@ -138,20 +142,20 @@
         else if ((((ICGridColumn)column).SubGrids != null || column.ReadComponentType != null)
             && string.IsNullOrWhiteSpace(column.TabGroup))
         {
-            <div class="@GridComponent.Grid.HtmlClass.FormGroupRow" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ)?"display:none;":"")">
+            <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormDivInput + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 : 12 - column.CrudLabelWidth).ToString()) : GridComponent.Grid.HtmlClass.FormGroupRow)" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ) ? "display:none;" : "")">
                 @if (!string.IsNullOrWhiteSpace(column.TooltipValue))
                 {
-                    <div class="@(GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
+                    <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
                         <FormTooltipComponent T="@T" Column="@column"></FormTooltipComponent>
                     </div>
                 }
                 else
                 {
-                    <label class="@(GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
+                    <label class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
                 }
                 @if (column.EnableCard)
                 {
-                    <div class="@(GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (12 - column.CrudLabelWidth).ToString()))">
+                    <div class="@(isMudBlazor ? "" : GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 : 12 - column.CrudLabelWidth).ToString()))">
                         <div class="@GridComponent.Grid.HtmlClass.Card">
                             <div class="@GridComponent.Grid.HtmlClass.CardBody">@_renderFragments.Get(column.Name)</div>
                         </div>
@@ -159,7 +163,7 @@
                  }
                  else
                  {
-                    <div class="@(GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString())">
+                    <div class="@(isMudBlazor ? "" : GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString())">
                         @_renderFragments.Get(column.Name)
                      </div>
                  }
@@ -175,8 +179,8 @@
                     .Where(r => r.TabGroup != null && r.TabGroup.Equals(tabGruop) && _renderFragments.Keys.Any(s => s.Equals(r.Name)));
             var tabLabels = columns.Select(r => new SelectItem(r.Name, r.Title));
             var column = columns.FirstOrDefault();
-            <div class="@GridComponent.Grid.HtmlClass.FormGroupRow">
-                <div class="@(GridComponent.Grid.HtmlClass.OffsetMd + column.CrudLabelWidth.ToString() + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (12 - column.CrudLabelWidth).ToString()))">
+            <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormDivInput + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 : 12 - column.CrudLabelWidth).ToString()) : GridComponent.Grid.HtmlClass.FormGroupRow)">
+                <div class="@(isMudBlazor ? "" : GridComponent.Grid.HtmlClass.OffsetMd + column.CrudLabelWidth.ToString() + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 : 12 - column.CrudLabelWidth).ToString()))">
                     <div class="@GridComponent.Grid.HtmlClass.Card">
                         <div class="@GridComponent.Grid.HtmlClass.CardBody">
                             <GridTabComponent T="@T" TabLabels="@tabLabels" TabContent="@_renderFragments" />
@@ -187,7 +191,7 @@
         }
     }
 
-    <div style="display:flex;">
+    <div class="@GridComponent.Grid.HtmlClass.FormButtons" style="display:flex;">
         <div>
             <CascadingValue Value=@this Name="GridReadComponent">
                 <GridReadButtonsComponent @ref="GridReadButtonsComponent" T="@T"></GridReadButtonsComponent>
@@ -218,7 +222,10 @@
 }
 <div class="@GridComponent.GridCrudHeaderCssClass">@(string.IsNullOrWhiteSpace(GridComponent.Grid.ReadFormLabel) ? Strings.View : GridComponent.Grid.ReadFormLabel)</div>
 
-<div>
+@{
+    bool isMudBlazor = GridComponent.Grid.HtmlClass.GridStyle >= CssFramework.MudBlazorOutlined;
+}
+<div class="@(isMudBlazor ? "grid-form-row" : "")">
     @foreach (var column in GridComponent.Grid.Columns)
     {
         if (((ICGridColumn)column).SubGrids == null && column.ComponentType == null
@@ -235,18 +242,18 @@
             {
                 continue;
             }
-            <div class="@GridComponent.Grid.HtmlClass.FormGroupRow" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ) ? "display:none;" : "")">
+            <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormDivInput + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString() : GridComponent.Grid.HtmlClass.FormGroupRow)" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ) ? "display:none;" : "")">
                 @if (!string.IsNullOrWhiteSpace(column.TooltipValue))
                 {
-                    <div class="@(GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
+                    <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
                         <FormTooltipComponent T="@T" Column="@column"></FormTooltipComponent>
                     </div>
                 }
                 else
                 {
-                    <label for="@column.FieldName" class="@(GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
+                    <label for="@column.FieldName" class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
                 }
-                <div class="@(type == typeof(bool) && column.ToggleSwitch ? GridComponent.Grid.HtmlClass.FormDivToggleSwitch : GridComponent.Grid.HtmlClass.FormDivInput) @(type == typeof(bool) && !column.ToggleSwitch ? GridComponent.Grid.HtmlClass.ColMd + "1" : GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString())">
+                <div class="@(isMudBlazor ? "" : (type == typeof(bool) && column.ToggleSwitch ? GridComponent.Grid.HtmlClass.FormDivToggleSwitch : GridComponent.Grid.HtmlClass.FormDivInput) + " " + (type == typeof(bool) && !column.ToggleSwitch ? GridComponent.Grid.HtmlClass.ColMd + "1" : GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString()))">
                     @if (((IGridColumn<T>)column).IsSelectField.IsSelectKey)
                     {
                         string text = ((IGridColumn<T>)column).GetFormatedValue(((IGridColumn<T>)column).IsSelectField.Expression, Item);
@@ -338,20 +345,20 @@
         else if ((((ICGridColumn)column).SubGrids != null || column.ReadComponentType != null)
             && string.IsNullOrWhiteSpace(column.TabGroup))
         {
-            <div class="@GridComponent.Grid.HtmlClass.FormGroupRow" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ)?"display:none;":"")">
+<div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormDivInput + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 : 12 - column.CrudLabelWidth).ToString()) : GridComponent.Grid.HtmlClass.FormGroupRow)" style="@(((IGridColumn<T>)column).CrudHidden(Item).HasFlag(CrudHidden.READ) ? "display:none;" : "")">
                 @if (!string.IsNullOrWhiteSpace(column.TooltipValue))
                 {
-                    <div class="@(GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
+                    <div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">
                         <FormTooltipComponent T="@T" Column="@column"></FormTooltipComponent>
                     </div>
                 }
                 else
                 {
-                    <label class="@(GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
+                    <label class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormLabel : GridComponent.Grid.HtmlClass.FormLabel + " " + GridComponent.Grid.HtmlClass.ColMd + column.CrudLabelWidth.ToString())">@column.Title</label>
                 }
                 @if (column.EnableCard)
                 {
-                    <div class="@(GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (12 - column.CrudLabelWidth).ToString()))">
+                    <div class="@(isMudBlazor ? "" : GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 :12 - column.CrudLabelWidth).ToString()))">
                         <div class="@GridComponent.Grid.HtmlClass.Card">
                             <div class="@GridComponent.Grid.HtmlClass.CardBody">@_renderFragments.Get(column.Name)</div>
                         </div>
@@ -359,7 +366,7 @@
                  }
                  else
                  {
-                    <div class="@(GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString())">
+                    <div class="@(isMudBlazor ? "" : GridComponent.Grid.HtmlClass.ColMd + column.CrudWidth.ToString())">
                         @_renderFragments.Get(column.Name)
                      </div>
                  }
@@ -375,8 +382,8 @@
                     .Where(r => r.TabGroup != null && r.TabGroup.Equals(tabGruop) && _renderFragments.Keys.Any(s => s.Equals(r.Name)));
             var tabLabels = columns.Select(r => new SelectItem(r.Name, r.Title));
             var column = columns.FirstOrDefault();
-            <div class="@GridComponent.Grid.HtmlClass.FormGroupRow">
-                <div class="@(GridComponent.Grid.HtmlClass.OffsetMd + column.CrudLabelWidth.ToString() + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (12 - column.CrudLabelWidth).ToString()))">
+<div class="@(isMudBlazor ? GridComponent.Grid.HtmlClass.FormDivInput + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 : 12 - column.CrudLabelWidth).ToString()) : GridComponent.Grid.HtmlClass.FormGroupRow)">
+<div class="@(isMudBlazor ? "" : GridComponent.Grid.HtmlClass.OffsetMd + column.CrudLabelWidth.ToString() + " " + GridComponent.Grid.HtmlClass.ColMd + (column.CrudCustomWith ? column.CrudWidth.ToString() : (isMudBlazor ? 12 : 12 - column.CrudLabelWidth).ToString()))">
                     <div class="@GridComponent.Grid.HtmlClass.Card">
                         <div class="@GridComponent.Grid.HtmlClass.CardBody">
                             <GridTabComponent T="@T" TabLabels="@tabLabels" TabContent="@_renderFragments" />
@@ -387,7 +394,7 @@
         }
     }
 
-    <div style="display:flex;">
+    <div class="@GridComponent.Grid.HtmlClass.FormButtons" style="display:flex;">
         <div>
             <CascadingValue Value=@this Name="GridReadComponent">
                 <GridReadButtonsComponent @ref="GridReadButtonsComponent" T="@T"></GridReadButtonsComponent>
