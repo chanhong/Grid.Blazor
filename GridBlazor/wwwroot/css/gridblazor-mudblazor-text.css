@@ -557,11 +557,30 @@ div[dir="rtl"] .grid-page-item:last-child .grid-page-link {
     margin-right: 5px;
 }
 
-.grid-crud-type .mud-input-label {
+.grid-mudblazor-switch {
+    margin: 0;
+    padding-top: 5.6px;
+}
+
+    .grid-mudblazor-switch label, div[dir="rtl"] .grid-mudblazor-switch label {
+        display: inline-block;
+    }
+
+.grid-mudblazor-switch:first-child {
+    margin-left: 0;
+}
+
+div[dir="rtl"] .grid-mudblazor-switch:first-child {
+    margin-right: 0;
+}
+
+.grid-crud-type .mud-input-label,
+.grid-mudblazor-switch .mud-input-label {
     margin: 0;
 }
 
-.grid-crud-type .grid-switch {
+.grid-crud-type .grid-switch,
+.grid-mudblazor-switch .grid-switch {
     margin: 0 16px;
 }
 

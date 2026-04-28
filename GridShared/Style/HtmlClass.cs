@@ -20,7 +20,7 @@ namespace GridShared.Style
         private readonly string[] _formSelect = { "form-control", "form-control", "form-select", "grid-materialize-select", "grid-bulma-select", "mud-select-input", "mud-select-input", "mud-select-input" };
         private readonly string[] _formTextArea = { "form-control", "form-control", "form-control", "grid-materialize-textarea", "textarea", "mud-input-root mud-input mud-input-multiline", "mud-input-root mud-input mud-input-multiline", "mud-input-root mud-input mud-input-multiline" };
         private readonly string[] _formCheck = { "form-control", "form-check", "form-check", "", "checkbox", "", "", "" };
-        private readonly string[] _formDivToggleSwitch = { "", "", "", "switch", "grid-bulma-switch", "", "", "" };
+        private readonly string[] _formDivToggleSwitch = { "", "", "", "switch", "grid-bulma-switch", "grid-mudblazor-switch", "grid-mudblazor-switch", "grid-mudblazor-switch" };
         private readonly string[] _formSpanToggleSwitch = { "grid-slider round", "grid-slider round", "grid-slider round", "lever", "grid-slider round", "grid-slider round", "grid-slider round", "grid-slider round" };
         private readonly string[] _formSpanToggleDisabledSwitch = { "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round", "lever", "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round", "grid-slider-disabled round" };
         private readonly string[] _formButtons = { "", "", "", "", "", "mud-grid-item mud-grid-item-xs-12", "mud-grid-item mud-grid-item-xs-12", "mud-grid-item mud-grid-item-xs-12" };
