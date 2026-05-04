@@ -36,7 +36,7 @@ table.grid-table .grid-header > .grid-header-group > .grid-header-title > button
 
     .mud-button-root.grid-button.grid-search-apply {
         padding-left: 20px;
-        border-radius: var(--mud-shape-borderradius, 4px) 0 0 var(--mud-shape-borderradius, 4px);
+        border: 0;
         background-repeat: no-repeat, no-repeat;
         background-position-x: 8px, 0px;
         background-position-y: 8px, 0px;
@@ -50,7 +50,7 @@ table.grid-table .grid-header > .grid-header-group > .grid-header-title > button
     .mud-button-root.grid-button.grid-search-clear {
         padding-left: 22px;
         padding-left: 20px;
-        border-radius: 0 var(--mud-shape-borderradius, 4px) var(--mud-shape-borderradius, 4px) 0;
+        border: 0;
         background-repeat: no-repeat, no-repeat;
         background-position-x: 8px, 0px;
         background-position-y: 8px, 0px;
